@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StackOverflow Clone</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <header>
+        <h1>StackOverflow Clone</h1>
+        <div id="user-info"></div>
+    </header>
+    <main>
+        <section id="auth-section">
+            <h2>Register</h2>
+            <input type="text" id="username" placeholder="Username">
+            <button id="register-btn">Register</button>
+        </section>
+        <section id="question-section">
+            <h2>Ask a Question</h2>
+            <input type="text" id="question-title" placeholder="Question Title">
+            <textarea id="question-content" placeholder="Question Content"></textarea>
+            <button id="ask-question-btn">Ask Question</button>
+        </section>
+        <section id="questions-list">
+            <h2>Questions</h2>
+            <div id="questions-container"></div>
+        </section>
+    </main>
+    <script type="module" src="index.js"></script>
+</body>
+</html>

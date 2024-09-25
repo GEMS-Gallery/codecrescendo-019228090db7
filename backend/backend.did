@@ -1,0 +1,40 @@
+type UserId = principal;
+type User = 
+ record {
+   id: UserId;
+   reputation: nat;
+   username: text;
+ };
+type Time = int;
+type QuestionId = nat;
+type Question = 
+ record {
+   authorId: UserId;
+   content: text;
+   createdAt: Time;
+   id: QuestionId;
+   title: text;
+   votes: int;
+ };
+type AnswerId = nat;
+type Answer = 
+ record {
+   authorId: UserId;
+   content: text;
+   createdAt: Time;
+   id: AnswerId;
+   questionId: QuestionId;
+   votes: int;
+ };
+service : {
+  answerQuestion: (QuestionId, text) -> (opt AnswerId);
+  askQuestion: (text, text) -> (QuestionId);
+  getAllQuestions: () -> (vec Question) query;
+  getAnswer: (AnswerId) -> (opt Answer) query;
+  getAnswersForQuestion: (QuestionId) -> (vec Answer) query;
+  getQuestion: (QuestionId) -> (opt Question) query;
+  getUser: (UserId) -> (opt User) query;
+  register: (text) -> (bool);
+  voteAnswer: (AnswerId, bool) -> (bool);
+  voteQuestion: (QuestionId, bool) -> (bool);
+}
